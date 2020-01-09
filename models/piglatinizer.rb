@@ -1,15 +1,15 @@
 class PigLatinizer
 
-    def piglatinize_phrase(phrase)
+    def piglatinize(phrase)
 
     a = phrase.split(' ')
-    b = a.map {|word| piglatinize(word)}
+    b = a.map {|word| piglatinize_word(word)}
     b.join(' ')
     end 
   
-  def piglatinize(word)
+  def piglatinize_word(word)
   
-    if ["a", "e", "i", "o", "u"].include?(word[0])
+    if ["a", "A", "I", "E", "O", "U", "e", "i", "o", "u"].include?(word[0])
   
       return "#{word}way"
     else 
@@ -17,7 +17,7 @@ class PigLatinizer
       loop do 
           word_array << word_array.shift 
   
-          break if word_array[0]=="a" || word_array[0] == "e" ||word_array[0]=="i" ||word_array[0]=="o" ||word_array[0]=="u"
+          break if word_array[0]=="a" || word_array[0]=="A" || word_array[0] == "e" || word_array[0]=="E" ||word_array[0]=="i" || word_array[0]=="I" ||word_array[0]=="o" || word_array[0]=="O" ||word_array[0]=="u" || word_array[0]=="U"
       end  
     end 
 
